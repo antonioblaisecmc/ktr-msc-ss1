@@ -10,6 +10,7 @@ public abstract class Character{
 
     public Character(String name){
         this.name = name;
+        this.RPGClass  = "Character";
     }
 
     public Character(String name, String RPGClass){
