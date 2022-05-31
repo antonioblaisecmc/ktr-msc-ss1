@@ -1,6 +1,6 @@
 package App;
 
-public class Mage extends Character{
+public class Mage extends Character implements Movable{
     private final static String RPGClassName = "Mage";
     
     public Mage(String name){
