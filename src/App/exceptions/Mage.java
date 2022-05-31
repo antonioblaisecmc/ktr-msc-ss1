@@ -1,10 +1,9 @@
-package App;
+package App.exceptions;
 
-import App.Movable;
-
-public class Mage extends Character implements Movable{
+public class Mage extends Character {
     private final static String RPGClassName = "Mage";
-    
+    private final static String WEAPON = "magic";
+
     public Mage(String name){
         super(name, RPGClassName);
         this.life = 70;
@@ -14,9 +13,20 @@ public class Mage extends Character implements Movable{
         System.out.println(name +": May the gods be with me.");
     }
 
-    public void attack(String weapon){
+    public void attack(String weapon) throws WeaponException{
+        if(weapon.equals("")){
+            throw new WeaponException(this.getName() +": I refuse to fight with my bare hands.");
+        }
+        if(!WEAPON.equals(weapon)){
+            throw new WeaponException(this.getName() +": A "+weapon+"?? What should I do with this?!");
+        }
         super.attack(weapon);
-        System.out.println(this.getName() +" Feel the power of my "+weapon+"!");
+        System.out.println(this.getName() +" I'll crush you with my "+weapon+"!");
+    }
+
+    @Override
+    public void tryToAttack(String weapon) {
+
     }
 
     public void moveRight(){
@@ -31,5 +41,5 @@ public class Mage extends Character implements Movable{
     public void moveBack(){
         System.out.println(this.getName() +": moves back furtively.");
     }
-
+    
 }

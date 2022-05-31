@@ -1,8 +1,8 @@
-package App;
+package App.exceptions;
 
-import App.exceptions.WeaponException;
+import App.Movable;
 
-public abstract class Character implements Movable{
+public abstract class Character implements Movable {
     protected String name;
     protected final String RPGClass;
     protected int life = 50;
@@ -44,11 +44,13 @@ public abstract class Character implements Movable{
         return this.wit;
     }
 
-    public void attack(String s){
+    public void attack(String s) throws WeaponException{
         System.out.println(this.name +": Rrrrrrrrr....");
     }
 
     public void unsheathe(){
         System.out.println(this.getName() +": unsheathes his weapon.");
     }
+
+    public abstract void tryToAttack(String weapon);
 }

@@ -1,20 +1,24 @@
 package App;
 
+import App.exceptions.WeaponException;
+import App.exceptions.Warrior;
+import App.exceptions.Mage;
+import App.exceptions.Character;
+
 public class MainTest{
     public static void main(String[] args){
-        Character warrior = new Warrior("Jean-Luc"); 
+        Character warrior = new Warrior("Jean-Luc");
         Character mage = new Mage("Robert");
-        //warrior.attack("hammer");
-        //mage.attack("magic");
 
+        warrior.tryToAttack("screwdriver");
+        mage.tryToAttack("hammer");
+        warrior.tryToAttack("hammer");
 
-        warrior.moveRight(); 
-        warrior.moveLeft(); 
-        warrior.moveBack(); 
-        warrior.moveForward(); 
-        mage.moveRight(); 
-        mage.moveLeft(); 
-        mage.moveBack(); 
-        mage.moveForward();
+        try {
+            mage.attack("");
+        } catch (WeaponException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
