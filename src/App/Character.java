@@ -1,6 +1,6 @@
 package App;
 
-public abstract class Character{
+public abstract class Character implements Movable{
     protected String name;
     protected final String RPGClass;
     protected int life = 50;
