@@ -9,6 +9,7 @@ public class Warrior extends Character{
         this.strength = 10;
         this.agility = 8;
         this.wit = 3;
+        System.out.println(name +": My name will go down in history!");
     }
 
     public void attack(String weapon){
