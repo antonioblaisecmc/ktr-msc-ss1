@@ -42,4 +42,7 @@ public abstract class Character{
         return this.wit;
     }
 
+    public void attack(String s){
+        System.out.println(this.name +": Rrrrrrrrr....");
+    }
 }
